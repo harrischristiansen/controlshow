@@ -4,15 +4,24 @@ use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| API Routes - Show Controller - github.com/harrischristiansen/controlshow
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::group(['prefix' => 'bridge'], function () {
+	Route::get('all', 'APIController@getBridges')->name('api_bridges');
+	Route::group(['prefix' => '{bridge}'], function () {
+		Route::get('', 'APIController@getBridge')->name('api_bridge');
+	});
+});
+
+Route::group(['prefix' => 'light'], function () {
+	Route::get('all', 'APIController@getLights')->name('api_lights');
+	Route::group(['prefix' => '{light}'], function () {
+		Route::get('', 'APIController@getLight')->name('api_light');
+	});
 });

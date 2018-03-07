@@ -4,13 +4,15 @@
 
 [WIP] Show Control is a web application built with [Laravel](https://laravel.com) for setting up and controlling smart lighting systems, such as [Philips Hue](http://meethue.com)  
 
-Find Show Control at [control.show](http://www.control.show)
+Find Show Control at [control.show](http://www.control.show)  
 
-Project available on [GitHub](https://github.com/harrischristiansen/controlshow).  
+Project available on [GitHub](https://github.com/harrischristiansen/controlshow)  
 
 ## Getting Started - Installation
 
 To get your own copy of Show Control running, follow the [Getting Started Instructions at Laravel.com](https://laravel.com/docs/master/installation)  
+- [ ] Migrate: `php artisan migrate`
+- [ ] Seed Database: `php artisan db:seed`
 
 ## Features
 
