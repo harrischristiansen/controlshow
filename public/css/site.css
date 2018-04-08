@@ -160,4 +160,35 @@ button.btn:hover {
 	top: 190px;
 }
 
+/* ------------------------ Room Layout - Nicky ------------------------- */
+
+.upO {
+	left: 50px;
+	top: 30px;
+}
+.upD {
+	left: 100px;
+	top: 30px;
+}
+.upC1 {
+	left: 150px;
+	top: 30px;
+}
+.upC2 {
+	left: 200px;
+	top: 30px;
+}
+.downStair {
+	left: 340px;
+	top: 100px;
+}
+.downOne {
+	left: 120px;
+	top: 150px;
+}
+.downTwo {
+	left: 240px;
+	top: 150px;
+}
+
 /* ------------------------ End ------------------------- */

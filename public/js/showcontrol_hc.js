@@ -7,21 +7,36 @@
 
 var	colors = colors || window.colors,
 	hue = hue || window.hue,
-	IPAddress = '10.0.0.147',
-	APIKey = 'KJbQWzkdkUlhE8276UsldU3Ss7emfXBC4AxuzcBo';
+	IPAddress = '10.3.0.177',
+	APIKey = 'd5orxbetHKF46FCV1wBmnFTVNSkGQWMSjwNOHu2i';
 
-var upO=1, upD=2, upC1=3, upC2=4, downStair=5, downOne=6, downTwo=7;
-var lights = [upO, upD, upC1, upC2, downStair, downOne, downTwo]
-	upstairs = [upO, upD, upC1, upC2],
-	downstairs = [downStair, downOne, downTwo];
+var windowLight = 5, couch = 6, wall = 7, mid = 8, tv = 9, strip = 18
+	lamp_mid = 10, lamp_top = 11, lamp_btm = 12,
+	bath_main = 16, bath_guest = 17,
+	fridge = 4, sink = 19, oven = 20, bar = 21, cabinet = 26, table=27;
+var lights = [cabinet, sink, oven, bar, fridge, mid, couch, strip, tv, table, windowLight, wall, lamp_top, lamp_mid, lamp_btm, bath_main, bath_guest]
+	kitchen = [sink, oven, bar, fridge, cabinet],
+	living = [mid, couch, tv, windowLight, strip, wall, table],
+	lamp = [lamp_top, lamp_mid, lamp_btm],
+	bath = [bath_main, bath_guest];
 var lightElements = {
-	".upO": [upO, "Nicky O"],
-	".upD": [upD, "Nicky D"],
-	".upC1": [upC1, "Nicky C1"],
-	".upC2": [upC2, "Nicky C2"],
-	".downStair": [downStair, "Downstairs Stair Light"],
-	".downOne": [downOne, "Downstairs Lamp One"],
-	".downTwo": [downTwo, "Downstairs Lamp 2"],
+	".sinkLight": [sink, "sink"],
+	".ovenLight": [oven, "oven"],
+	".barLight": [bar, "bar"],
+	".fridgeLight": [fridge, "fridge"],
+	".cabinetLight": [cabinet, "cabinet"],
+	".midLight": [mid, "middle"],
+	".couchLight": [couch, "couch"],
+	".tvLight": [tv, "tv"],
+	".windowLight": [windowLight, "window"],
+	".wallLight": [wall, "wall"],
+	".tableLight": [table, "table"],
+	".deskLight": [strip, "tv desk"],
+	".lampTop": [lamp_top, "lamp top"],
+	".lampMid": [lamp_mid, "lamp middle"],
+	".lampBtm": [lamp_btm, "lamp bottom"],
+	".bathLight": [bath_main, "main bathroom"],
+	".guestLight": [bath_guest, "guest bathroom"],
 };
 var color_palette = ['transparent', '#000001', '#FF0000', '#904000', '#ffb400', '#ff00b0', '#bb00ff', '#0000FF', '#00FF00', '#8183ff', '#e1e2fb', '#f9bbbb', '#f9bbf1']
 
@@ -249,26 +264,48 @@ function flashLightElement(light) {
 // ================ Color Pickers ============== //
 
 function createColorpickers() {
-	$("#act_upstairs").spectrum({
+	$("#act_kitchen").spectrum({
 		chooseText: "Set",
 		showAlpha: true,
 		showPalette: true,
 		palette: color_palette,
 		change: function(color) {
-			setRoom(upstairs, color);
-			displayMessage("Set upstairs lights to "+color.toHexString());
+			setRoom(kitchen, color);
+			displayMessage("Set kitchen lights to "+color.toHexString());
 			$("#act_kitchen").css('background-color', color.toHexString());
 		}
 	});
-	$("#act_downstairs").spectrum({
+	$("#act_living").spectrum({
 		chooseText: "Set",
 		showAlpha: true,
 		showPalette: true,
 		palette: color_palette,
 		change: function(color) {
-			setRoom(downstairs, color);
-			displayMessage("Set downstairs lights to "+color.toHexString());
+			setRoom(living, color);
+			displayMessage("Set living room lights to "+color.toHexString());
 			$("#act_living").css('background-color', color.toHexString());
+		}
+	});
+	$("#act_lamp").spectrum({
+		chooseText: "Set",
+		showAlpha: true,
+		showPalette: true,
+		palette: color_palette,
+		change: function(color) {
+			setRoom(lamp, color);
+			displayMessage("Set lamp lights to "+color.toHexString());
+			$("#act_lamp").css('background-color', color.toHexString());
+		}
+	});
+	$("#act_bath").spectrum({
+		chooseText: "Set",
+		showAlpha: true,
+		showPalette: true,
+		palette: color_palette,
+		change: function(color) {
+			setRoom(bath, color);
+			displayMessage("Set bathroom lights to "+color.toHexString());
+			$("#act_bath").css('background-color', color.toHexString());
 		}
 	});
 

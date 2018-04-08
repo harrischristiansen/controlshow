@@ -1,3 +1,7 @@
+<?
+$currentLights = True;
+?>
+
 @extends("app")
 
 @section("content")
@@ -12,10 +16,8 @@
 		<a class="btn btn-success btn-xl act_setBright" href="#" data-brightness="255">Max</a>
 	</div>
 	<div class="jumbotron text-center lightControls">
-		<a class="btn btn-primary btn-xl" href="#" id="act_kitchen">Kitchen</a>
-		<a class="btn btn-primary btn-xl" href="#" id="act_living">Living</a>
-		<a class="btn btn-primary btn-xl" href="#" id="act_lamp">Lamp</a>
-		<a class="btn btn-primary btn-xl" href="#" id="act_bath">Bath</a>
+		<a class="btn btn-primary btn-xl" href="#" id="act_upstairs">Upstairs</a>
+		<a class="btn btn-primary btn-xl" href="#" id="act_downstairs">Downstairs</a>
 		<br><br>
 		@include('elements/lightmap')
 	</div>
