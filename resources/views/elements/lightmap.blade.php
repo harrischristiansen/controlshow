@@ -1,4 +1,4 @@
-<?
+@php
 $sceneID = bin2hex(openssl_random_pseudo_bytes(10));
 
 $DEFAULT_LAYOUT = [
@@ -41,7 +41,7 @@ $CLASSNAME_TO_LIGHTNAME = [
 	"guestLight" => 	"Guest Bath",
 ];
 
-?>
+@endphp
 
 <div class="roomLayout {{ isset($currentLights) ? 'currentLights' : 'sceneMap' }}" id="<? echo $sceneID; ?>">
 	@php
